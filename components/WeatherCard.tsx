@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, useWindowDimensions } from 'react-native';
 import LottieView from 'lottie-react-native';
 
 interface WeatherCardProps {
@@ -9,10 +9,12 @@ interface WeatherCardProps {
 }
 
 export const WeatherCard: React.FC<WeatherCardProps> = ({ city, temp, description }) => {
+  const { width } = useWindowDimensions();
+
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, { width: width * 0.8 }]}>
       <LottieView
-        source={require('@/assets/weather.json')} // Ensure the correct path to Lottie file
+        source={require('@/assets/weather.json')} 
         autoPlay
         loop
         style={styles.animation}
@@ -30,16 +32,15 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#4facfe', // Add a solid background color instead of gradient
+    backgroundColor: '#4facfe',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.5,
     shadowRadius: 5,
     elevation: 8,
-    width: 250,
   },
   animation: {
-    width: 120,
+    width: '40%',
     height: 120,
   },
   city: {
@@ -47,6 +48,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#fff',
     marginTop: 10,
+    textAlign: 'center',
   },
   temp: {
     fontSize: 40,
@@ -57,5 +59,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#fff',
     marginTop: 5,
+    textAlign: 'center',
   },
 });
