@@ -9,3 +9,11 @@ export const fetchWeather = async (city: string) => {
   return response.data;
 };
 
+// hooks/useWeather.ts
+export const fetchWeatherByCoords = async (lat: number, lon: number) => {
+ 
+  const response = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+  );
+  return response.json();
+};
