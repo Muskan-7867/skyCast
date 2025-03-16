@@ -30,7 +30,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate }) => {
   return (
     <View style={styles.container}>
       <View style={styles.iconWrapper}>
-        <Feather name="map-pin" size={80} color="#4facfe" />
+        <Feather name="map-pin" size={80} color="#fff" />
       </View>
       <Text style={styles.title}>Use Location</Text>
       <Text style={styles.desc}>
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#fff',
     marginBottom: 10,
   },
   desc: {
